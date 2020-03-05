@@ -6,7 +6,7 @@ const { login, getDomains, getRecords, update } = require('njalla-dns')
 ;(async function main() {
     //Read user and pass from credentials.txt
     var fs = require('fs');
-    var credentials = fs.readFileSync('credentials.txt').toString().split("\n");
+    var credentials = fs.readFileSync('/home/iregvd/workspace/njalla-dns-updater/credentials.txt').toString().split("\n");
     //Getting server public IP
     var pubIp = await publicIp.v4()
     //Log in to Nja.la
@@ -19,7 +19,7 @@ const { login, getDomains, getRecords, update } = require('njalla-dns')
       for(j=0;j<records.length;j++){
         //If IP is the same, don't update records
         if(pubIp!=records[j].content){
-          await update(domains[i], records[j]], { content: 'publicIp' })
+          await update(domains[i], records[j], { content: 'publicIp' })
           console.log(records[j].name+"."+domains[i]+" new ip: "+pubIp)
         }else{
           console.log(records[j].name+"."+domains[i]+" ip is up to date")
