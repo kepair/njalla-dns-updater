@@ -22,10 +22,16 @@ Requisites:
 ```
 git clone https://github.com/kepair/njalla-dns-updater.git
 ```
-2. Edit the file `cronjob.sh` to point to the location of `main.js`:
+2. Replace `<path-to>` in the files `cronjob.sh` and `main.js` to point to the location of the folder:
+
+cronjob.sh:
 ```
 #bin/bash
 node <path-to>/njalla-dns-updater/main.js
+```
+main.js:
+```
+var credentials = fs.readFileSync('<path-to>/njalla-dns-updater/credentials.txt').toString().split("\n");
 ```
 3. Create a cron job that runs this every X minutes by running:
 ```
