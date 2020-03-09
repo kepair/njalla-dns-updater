@@ -6,7 +6,7 @@ const { login, getDomains, getRecords, update } = require('njalla-dns')
 ;(async function main() {
     //Read user and pass from credentials.txt
     var fs = require('fs');
-    var credentials = fs.readFileSync('/home/iregvd/workspace/njalla-dns-updater/credentials.txt').toString().split("\n");
+    var credentials = fs.readFileSync('<path-to>/njalla-dns-updater/credentials.txt').toString().split("\n");
     //Getting server public IP
     var pubIp = await publicIp.v4()
     //Log in to Nja.la
