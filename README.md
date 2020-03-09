@@ -1,13 +1,3 @@
----
-title: Njalla DNS Updater
-date: 2020-03-01T12:00:00.000Z
----
-
-JS script to keep the records of a domain pointing to the public ip of the server.
-With this you don't need to register in DynDNS or NoIP if your ISP changes your IP now and then.
-
-<!-- more -->
-
 ## About
 
 I recently changed the domain of my home server and decided to go to [Njalla](https://nja.la) for it. I liked Njalla because it goes straight to the point. It's private, they have fair prices and it's simple to use.
