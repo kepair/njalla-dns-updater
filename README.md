@@ -1,17 +1,27 @@
+---
+title: Njalla DNS Updater
+date: 2020-03-01T12:00:00.000Z
+---
+
+JS script to keep the records of a domain pointing to the public ip of the server.
+With this you don't need to register in DynDNS or NoIP if your ISP changes your IP now and then.
+
+<!-- more -->
+
 ## About
 
-I recently changed the domain of my home server and decided to go to [Njalla](https://nja.la) for it. I liked Njalla because it goes straight to the point. It's private, they have fair prices and it's simple to use.
+I recently changed the domain of my home server and decided to go to [Njalla](https://nja.la) for it.
 As most people, I don't have a static IP, so I need to update the address in my DNS records configuration everytime it changes (this happens everytime the router turns off and on and also from time to time randomly).
 
 To solve this, there are two main options:
 
-* Using services like [NoIP](https://www.noip.com/) or [DynDNS](https://dyn.com/)
-* Update the DNS records manually or programatically
+* Using services like [NoIP](https://www.noip.com/) or [DynDNS](https://dyn.com/). They send a ping with the current IP after you configured it in the router or installed a client app. You have to deal with the middle domain in your domain service etc.
+* Update the DNS records by accessing the domain manager and changing them if necessary through a job that executes in a schedule.
 
-Why would I want to register yet in another website and subscribe to a yet another "free" service to root all my traffic through someone in order to not worry about my IP when I can simply create a script that does it automatically?
-Previously I had the domain with GoDaddy and I had a script running every 30 min with Cron to do the job, but now I couldn't find anything for Njalla already done.
+Why register yet in another website when I can simply create a script that does it?
+Previously I had the domain with GoDaddy and I had something like [this](https://github.com/SeanDuttonJones/godaddy-ddns-python), but I couldn't find any for Njalla already done.
 
-Fortunately, I found [@romualdr](https://github.com/romualdr). He made a JS library to manipulate your domains. With this, it was easy to create a small [js script](https://github.com/kepair/njalla-dns-updater) that does the job, and with crontab, I don't have to worry about this anymore. 
+Luckily, I found [@romualdr](https://github.com/romualdr). He made a JS library to manipulate your domains. With this, it was easy to create a small [js script](https://github.com/kepair/njalla-dns-updater) that does the job, and with crontab, I don't have to worry about this anymore. 
 
 ## How to use (Ubuntu)
 
@@ -33,7 +43,13 @@ main.js:
 ```
 var credentials = fs.readFileSync('<path-to>/njalla-dns-updater/credentials.txt').toString().split("\n");
 ```
-3. Create a cron job that runs this every X minutes by running:
+
+3. Install dependencies by being in the root folder of the project and typing:
+```
+npm install
+```
+
+4. Create a cron job that runs this every X minutes by running:
 ```
 crontab -e
 ```
