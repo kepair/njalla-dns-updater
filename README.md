@@ -19,7 +19,17 @@ git clone https://github.com/kepair/njalla-dns-updater.git
 cd njalla-dns-updater/
 npm install
 ```
-3. Create a cron job that runs this every X minutes:
+3. Change the name of `credentials.txt.example` to `credentials.txt` file and write your user and password there. At his point you can test the script by running:
+```
+node ./main.js $PWD
+```
+_$PWD returns the current directory_
+
+4. Make sure `cronjob.sh` executable by your user:
+```
+sudo chmod u+x cronjob.sh
+```
+5. Create a cron job that runs this every X minutes:
 ```
 crontab -e
 ```
