@@ -23,7 +23,9 @@ npm install
 ```
 node ./main.js $PWD
 ```
-_$PWD returns the current directory_
+_$PWD returns the current directory._
+
+_`cronjob.sh` uses `dirname "$0"` as it returns the directory of the script. This way the script can be executed from any folder._
 
 4. Make sure `cronjob.sh` executable by your user:
 ```
@@ -38,7 +40,9 @@ To add a job that runs every hour:
 0 * * * * * <path-to>/njalla-dns-updater/cronjob.sh
 ```
 
-This script updates all records from all domains because it was what I needed at the moment. If you want you update all records from only certain domains, comment line 17 (`const domains = await getDomains();`) and uncomment line 5 (`//const domains = ["domain1.com","domain2.net"]`) and update your domains accordingly.
+This script updates all records from all domains because it was what I needed at the moment. 
+
+If you want you update all records from only certain domains, comment line 17 (`const domains = await getDomains();`) and uncomment line 5 (`//const domains = ["domain1.com","domain2.net"]`) and update your domains accordingly.
 
 ### References
 
