@@ -1,2 +1,2 @@
 #bin/bash
-node $PWD/main.js $PWD
+node `dirname "$0"`/main.js `dirname "$0"`
