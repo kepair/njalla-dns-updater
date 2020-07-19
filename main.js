@@ -21,7 +21,7 @@ const currentPath = process.argv[2];
         for (j = 0; j < records.length; j++) {
             //If IP is not the same, update records
             if (pubIp != records[j].content) {
-                await update(domains[i], records[j], { content: 'publicIp' })
+                await update(domains[i], records[j], { content: pubIp })
                 console.log(records[j].name + "." + domains[i] + " new ip: " + pubIp)
             } else {
                 console.log(records[j].name + "." + domains[i] + " ip is up to date")
