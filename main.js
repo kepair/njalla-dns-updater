@@ -1,4 +1,3 @@
-const https = require('https');
 const publicIp = require('public-ip');
 const { login, getDomains, getRecords, update } = require('njalla-dns')
 const currentPath = process.argv[2];
