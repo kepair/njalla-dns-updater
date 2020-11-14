@@ -40,7 +40,7 @@ To add a job that runs every hour:
 0 * * * * * <path-to>/njalla-dns-updater/cronjob.sh
 ```
 
-This script updates all records from all domains because it was what I needed at the moment. 
+This script updates all _A_ records from all domains because it was what I needed at the moment. 
 
 If you want you update all records from only certain domains, comment line 17 (`const domains = await getDomains();`) and uncomment line 5 (`//const domains = ["domain1.com","domain2.net"]`) and update your domains accordingly.
 
